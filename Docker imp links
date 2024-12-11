@@ -2,3 +2,22 @@ https://jenkov.com/tutorials/docker/dockerfile.html#entrypoint
 
 
 https://eksctl.io/installation/---installing eksctl
+
+
+Kubernetes commands
+-----------------------------------------------------------
+pwd
+    2  aws --version
+    3  kubectl version
+    4  clear
+    5  # for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+    6  ARCH=amd64
+    7  PLATFORM=$(uname -s)_$ARCH
+    8  curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
+    9  # (Optional) Verify checksum
+   10  curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check
+   11  tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
+   12  sudo mv /tmp/eksctl /usr/local/bin
+   13  eksctl version
+   14  clear
+   15  eksctl create cluster --name=eksdemo2 --without-nodegroup
